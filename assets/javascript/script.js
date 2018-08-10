@@ -6,51 +6,51 @@ var i = 0;
 var interval = null;
 var questions = [
     {
-        q: "What color is blue?",
-        a: ["blue", "red", "green"],
-        ca: "blue"
+        q: "Do I look good in red?",
+        a: ["Yes, indeed.", "&%@# no!", "Waffle."],
+        ca: "Yes, indeed."
     },
     {
-        q: "What is rice?",
-        a: ["a legume", "a grain", "a bean"],
-        ca: "a grain"
+        q: "What brings out the best in a man?",
+        a: ["Red lingerie!", "A challenge.", "HM Secret Service."],
+        ca: "A challenge."
     },
     {
-        q: "You paint with ____",
-        a: ["charcoal", "graphite", "paint"],
-        ca: "paint"
+        q: "How many years did I take dance lessons?",
+        a: ["Eleven years.", "Five years.", "Your whole life."],
+        ca: "Eleven years."
     }
 ];
 $(".functions").on("click", "#start-button", function () {
     gameLoad();
-    
+
 })
-$("#start-button").on("click",  function () {
+$("#start-button").on("click", function () {
     gameLoad();
-    
+
 })
 $(".functions").on("click", "#restart-button", function () {
-
     reStart();
-    
+
 })
-var counter= 8;
+var counter = 8;
 function endGame() {
+    clearInterval(interval);
     $("#the-timer").text("");
-    $("#results").text("You guessed " + correct +" correctly and " + incorrect + " incorrectly");
-        $("#g-over").text("GAME OVER!");
-        $("#restart-button").remove();
-        $(".functions").append('<a class="btn btn-primary btn-lg" id="restart-button" role="button">Restart!</a>');
+    $("#results").text("You guessed " + correct + " correctly and " + incorrect + " incorrectly");
+    $("#g-over").text("GAME OVER!");
+    $("#restart-button").remove();
+    $(".functions").append('<a class="btn btn-primary btn-lg" id="restart-button" role="button">Restart!</a>');
 }
 
 function run() {
     clearInterval(interval)
     interval = setInterval(timer, 1000);
-    
+
 }
-   
+
 function timer() {
-    
+
     counter--;
     $("#the-timer").text(counter)
     if (counter === 0) {
@@ -60,6 +60,8 @@ function timer() {
 function reStart() {
     clearInterval(interval);
     i = 0;
+    correct = 0;
+    incorrect = 0;
     $("#restart-button").remove();
     $("#the-question").text('');
     $("#an-a").html('');
@@ -68,7 +70,7 @@ function reStart() {
     $("#results").text("");
     $("#g-over").text("");
     $(".functions").append('<a class="btn btn-primary btn-lg" id="start-button" role="button">Start!</a>');
-    
+
 }
 function gameLoad() {
     $("#start-button").remove();
@@ -87,7 +89,6 @@ function qaFill() {
 
 //I know this could be done A LOT more cleanly.
 $("#an-a").on("click", function () {
-    // clearInterval(interval);
     counter = 8;
     pAnswer = questions[i].a[0];
     cAnswer = questions[i].ca;
@@ -105,13 +106,12 @@ $("#an-a").on("click", function () {
     }
     if (correct + incorrect === 3) {
         endGame();
-       
+
     }
 
 })
 
 $("#an-b").on("click", function () {
-    
     counter = 8;
     pAnswer = questions[i].a[1];
     cAnswer = questions[i].ca;
@@ -130,12 +130,12 @@ $("#an-b").on("click", function () {
     }
     if (correct + incorrect === 3) {
         endGame();
-        
+
     }
 })
 
 $("#an-c").on("click", function () {
-    
+
     counter = 8;
     pAnswer = questions[i].a[2];
     cAnswer = questions[i].ca;
@@ -154,7 +154,7 @@ $("#an-c").on("click", function () {
     }
     if (correct + incorrect === 3) {
         endGame();
-        
+
     }
 })
 

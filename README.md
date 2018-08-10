@@ -2,5 +2,5 @@
 A game of trivia
 
 
-bugs - no timer
-     - does not print guesses at end screen
+bugs - borks itself on 3rd q after restart
+    - timer won't stop
