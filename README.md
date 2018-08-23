@@ -1,6 +1,6 @@
 # TriviaGame
 A game of trivia
 
+ANSWER SOME QUESTIONS! About Zardoz Connery, to Zardoz Connery.
 
-bugs - borks itself on 3rd q after restart
-    - timer won't stop
+https://Jaco5.github.io/TriviaGame
